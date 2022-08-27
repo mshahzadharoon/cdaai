@@ -13,8 +13,6 @@ data = pd.read_csv('SMS_data.csv',encoding="ISO-8859-1")
 data["text_lower"] = data["Message_body"].str.lower()
 ####*******####
 
-#data.drop(["text_lower"], axis=1, inplace=True)
-
 PUNCT_TO_REMOVE = string.punctuation
 def remove_punctuation(text):
     """custom function to remove the punctuation"""
@@ -49,9 +47,9 @@ spam_cnt = Counter()
 for text in data["Message_body"].values:
     for word in text.split():
         spam_cnt[word] += 1
-spam_cnt.most_common(20)
+spam_cnt.most_common(10)
 
-common_word_spam = pd.DataFrame(spam_cnt.most_common(25), columns=['Common Words Spam', 'count'])
+common_word_spam = pd.DataFrame(spam_cnt.most_common(10), columns=['Common Words Spam', 'count'])
 spm_msg_count    = spam_data.groupby('Date_Received')['text_wo_stop'].count().sort_values(ascending=False)    
 
 ##***NON-SPAM**##
@@ -60,9 +58,9 @@ no_spam_cnt = Counter()
 for text in no_spam_data["Message_body"].values:
     for word in text.split():
         no_spam_cnt[word] += 1
-no_spam_cnt.most_common(25)
+no_spam_cnt.most_common(10)
 
-common_word_no_spam = pd.DataFrame(no_spam_cnt.most_common(25), columns=['Common Words Non-Spam', 'count'])
+common_word_no_spam = pd.DataFrame(no_spam_cnt.most_common(10), columns=['Common Words Non-Spam', 'count'])
 
 no_spam_msg_count = no_spam_data.groupby('Date_Received')['text_wo_stop'].count().sort_values(ascending=False)    
 
