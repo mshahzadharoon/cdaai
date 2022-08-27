@@ -79,7 +79,7 @@ def main():
             #subset  =  common_word_spam['Common Words Spam'] #common_word_spam
 
             #Bar Chart
-            st.barh_chart(common_word_spam,x="count", y="Common Words Spam")
+            st.bar_chart(common_word_spam,x="count", y="Common Words Spam")
             
             st.subheader("Number of Messages Recieved over Dates")
             st.line_chart(spm_msg_count)
@@ -89,7 +89,7 @@ def main():
             st.subheader("Most Common Words (NON-SPAM) uses in SMS Data")
             subset  =  common_word_no_spam['Common Words Non-Spam'] #common_word_no_spam
     
-            st.barh_chart(subset)    
+            st.bar_chart(subset)    
             st.subheader("Number of Messages Recieved over Dates")
             st.line_chart(no_spam_msg_count)
 
