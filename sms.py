@@ -5,9 +5,9 @@ from collections import Counter
 import nltk
 import string
 
-path = 'C:/Users/User/Karachi ai/Class5/Assignment/SMS_data.csv'
-data = pd.read_csv(path,encoding="ISO-8859-1")
-#data = pd.read_csv('SMS_data.csv',encoding="ISO-8859-1")
+#path = 'C:/Users/User/Karachi ai/Class5/Assignment/SMS_data.csv'
+#data = pd.read_csv(path,encoding="ISO-8859-1")
+data = pd.read_csv('SMS_data.csv',encoding="ISO-8859-1")
 
 ####*******####
 data["text_lower"] = data["Message_body"].str.lower()
